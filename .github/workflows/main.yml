@@ -25,6 +25,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+      - name: chmod
+        run: chmod +x decrypt_secret.sh
       - name: Run a one-line script
         run: ./.github/scripts/decrypt_secret.sh
         env:
