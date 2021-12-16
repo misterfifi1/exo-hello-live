@@ -25,14 +25,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - name: Run a one-line script
-        uses: zgosalvez/github-actions-decrypt-secrets@v1
-        with:
-            secrets_file: .github/workflows/secrets.json.gpg
-            map: 'SECRET_PASSWORD=PASSWORD,PASSPHRASE=passphrase'
-      # Runs a single command using the runners shell
       - name: Run a one-line script
         env:
           ENV_NAME: ${{secrets.MY_NAME}}
-        run: echo env is '${ENV_NAME}'
+        run: cat $HOME/secrets/my_secret.json
+        
