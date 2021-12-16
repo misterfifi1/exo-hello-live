@@ -23,9 +23,14 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-
+      - name: Run a one-line script
+        uses: zgosalvez/github-actions-decrypt-secrets@v1
+        with:
+            secrets_file: .github/workflows/secrets.json.gpg
+            map: 'SECRET_PASSWORD=PASSWORD,PASSPHRASE=passphrase'
       # Runs a single command using the runners shell
       - name: Run a one-line script
         env:
