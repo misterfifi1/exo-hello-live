@@ -28,5 +28,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         env:
-          ENV_NAME: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          ENV_NAME: ${{ secrets.ENVIRONMENT }}
         run: echo '${ENV_NAME}'
