@@ -30,4 +30,4 @@ jobs:
       - name: Run a one-line script
         env:
           ENV_NAME: ${{secrets.MY_NAME}}
-        run: echo "${ENV_NAME}"
+        run: echo env is '${ENV_NAME}'
